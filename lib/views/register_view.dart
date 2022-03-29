@@ -79,7 +79,17 @@ class _RegisterViewState extends State<RegisterView> {
                     context,
                     'Invalid email',
                   );
+                } else {
+                  await showErrorDialog(
+                    context,
+                    'Error: ${e.code}',
+                  );
                 }
+              } catch (e) {
+                await showErrorDialog(
+                  context,
+                  e.toString(),
+                );
               }
             },
           ),
